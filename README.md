@@ -14,16 +14,16 @@ This client allows users to enter an address to fetch the current temperature fo
 
 ### Search
 
-![Search](https://raw.githubusercontent.com/temp-check/client/master/screenshots/1.png)
+![Search](https://raw.githubusercontent.com/temp-check/web/main/screenshots/1.png)
 
 ### Results
 
-![Results](https://raw.githubusercontent.com/temp-check/client/master/screenshots/2.png)
+![Results](https://raw.githubusercontent.com/temp-check/web/main/screenshots/2.png)
 
 ### History
 
-![History](https://raw.githubusercontent.com/temp-check/client/master/screenshots/3.png)
+![History](https://raw.githubusercontent.com/temp-check/web/main/screenshots/3.png)
 
 ### Not Found
 
-![Not Found](https://raw.githubusercontent.com/temp-check/client/master/screenshots/4.png)
+![Not Found](https://raw.githubusercontent.com/temp-check/web/main/screenshots/4.png)
