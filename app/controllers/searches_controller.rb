@@ -22,7 +22,11 @@ class SearchesController < ApplicationController
   # POST /searches or /searches.json
   def create
     @search = Search.new(search_params)
-
+    @search.fetch_api_data
+    @search.save
+    p "---search"
+    p @search.to_json
+    p "---search"
     respond_to do |format|
       if @search.save
         format.html { redirect_to search_url(@search), notice: "Search was successfully created." }

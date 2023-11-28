@@ -13,7 +13,7 @@
         <th>High</th>
         <th>Low</th>
       </tr>
-      <% search["postal_code"]["temperature"]["forecast"].each do |forecast| %>
+      <% search[:data]["postal_code"]["temperature"]["forecast"].each do |forecast| %>
       <tr>
         <td><%= forecast['date'] %></td>
         <td><%= image_tag forecast['icon'] %></td>
