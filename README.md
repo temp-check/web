@@ -58,4 +58,4 @@ The web application will be available at [http://localhost:3001](http://localhos
 
 ![Not Found](https://raw.githubusercontent.com/temp-check/web/main/screenshots/4.png)
 
-> If an address can't be found or is invalid, you will see this message. You can click the `Delete` link to remove unwanted results.
+> If an address can't be found or is invalid, you will see this message. You can click the `Delete` button to remove unwanted results, or click the `Results` link to return to previously searched forecasts.
