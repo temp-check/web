@@ -13,24 +13,14 @@ ENV RAILS_ENV="production" \
   BUNDLE_PATH="/usr/local/bundle" \
   BUNDLE_WITHOUT="development"
 
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
-# Clear apt cache
-
+# Implementing retry logic for apt-get commands
 RUN apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
-  apt-get update -qq
-
-
-# Install packages needed to build gems
-# RUN apt-get update -qq && \
-#     apt-get install --no-install-recommends -y build-essential git libvips pkg-config
-
-RUN apt-get update -qq --fix-missing && \
-  apt-get install --no-install-recommends -y --fix-missing build-essential git pkg-config libvips
-
+  for i in {1..5}; do apt-get update -qq && break || sleep 15; done && \
+  for i in {1..5}; do apt-get install --no-install-recommends -y --fix-missing build-essential git pkg-config libvips && break || sleep 15; done
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -47,13 +37,12 @@ RUN bundle exec bootsnap precompile app/ lib/
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
-
 # Final stage for app image
 FROM base
 
-# Install packages needed for deployment
-RUN apt-get update -qq && \
-  apt-get install --no-install-recommends -y curl libsqlite3-0 libvips && \
+# Retry logic for apt-get commands in final stage
+RUN for i in {1..5}; do apt-get update -qq && break || sleep 15; done && \
+  for i in {1..5}; do apt-get install --no-install-recommends -y curl libvips && break || sleep 15; done && \
   rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
