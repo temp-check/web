@@ -4,7 +4,7 @@
 
 A simple web client for the [temp-check API](https://github.com/temp-check/api).
 
-This client allows users to enter an address to fetch the current temperature for a given address and shows whether the response received from the API was just fetched(🔥), cached(💵), successdul(✅), or errored(❌).
+This client allows users to enter an address to fetch the current temperature for a given address and shows whether the response received from the API was just fetched(🔥), cached(💵), successful(✅), or ran into errors(❌).
 
 ## Get Started (Locally)
 
