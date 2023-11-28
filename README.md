@@ -36,18 +36,26 @@ The web application will be available at [http://localhost:3001](http://localhos
 
 ## Screenshots
 
-### Search
+### Searching for a forecast
 
 ![Search](https://raw.githubusercontent.com/temp-check/web/main/screenshots/1.png)
 
-### Results
+> Type in an address or zipcode and click the search button. you can also click the `Results` link to view results of previous searches.
+
+### Forecast details
 
 ![Results](https://raw.githubusercontent.com/temp-check/web/main/screenshots/2.png)
 
-### History
+> When viewing a forecast result, you can click the `Delete` button to remove the result from the database. Or click the `Results` link to view any previously searched forecasts.
+
+### Forecast history
 
 ![History](https://raw.githubusercontent.com/temp-check/web/main/screenshots/3.png)
+
+> This view allows you to see all the previous searches. You can also click the `New` link at the bottom to lookup the forecast in a new search.
 
 ### Not Found
 
 ![Not Found](https://raw.githubusercontent.com/temp-check/web/main/screenshots/4.png)
+
+> If an address can't be found or is invalid, you will see this message. You can click the `Delete` link to remove unwanted results.
