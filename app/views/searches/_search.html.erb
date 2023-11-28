@@ -1,17 +1,27 @@
 <div id="<%= dom_id search %>">
-  <p>
-    <strong>Address:</strong>
+  <h2>
     <%= search.address %>
-  </p>
+  </h2>
 
-  <p>
-    <strong>Data:</strong>
-    <%= search.data %>
-  </p>
-
-  <p>
-    <strong>Error:</strong>
-    <%= search.error %>
-  </p>
+  <% if search.error %>
+    <p style="color: red"><%= search.error %></p>
+  <% elsif search.data %>
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>High</th>
+        <th>Low</th>
+      </tr>
+      <% search["postal_code"]["temperature"]["forecast"].each do |forecast| %>
+      <tr>
+        <td><%= forecast['date'] %></td>
+        <td><%= image_tag forecast['icon'] %></td>
+        <td><%= forecast['max_f'] %></td>
+        <td><%= forecast['min_f'] %></td>
+      </tr>
+      <% end %>
+    </table>
+  <% end %>
 
 </div>

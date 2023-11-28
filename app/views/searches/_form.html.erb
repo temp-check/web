@@ -2,7 +2,7 @@
   <%= form_with(model: search) do |form| %>
     <% if search.errors.any? %>
       <div style="color: red">
-        <h2><%= pluralize(search.errors.count, "error") %> prohibited this search from being saved:</h2>
+        <h3><%= pluralize(search.errors.count, "error") %> prohibited this search from being saved:</h3>
         <ul>
           <% search.errors.each do |error| %>
             <li><%= error.full_message %></li>
