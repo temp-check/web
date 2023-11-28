@@ -21,6 +21,7 @@ class Search < ApplicationRecord
   def handle_response(response)
     if response.is_a?(Net::HTTPSuccess)
       self.data = JSON.parse(response.body)['data']
+      self.cached = self.data['postal_code']['temperature']['cached']
       self.error = nil
     else
       self.error = JSON.parse(response.body)['errors']

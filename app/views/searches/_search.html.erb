@@ -4,7 +4,22 @@
   </h3>
 
   <% if search.error %>
-    <p style="color: red"><%= search.error %></p>
+
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+      <% search.error.each do |error| %>
+        <% error.each do |field, message| %>
+          <tr>
+            <td><%= field %></td>
+            <td><%= message %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+
   <% elsif search.data %>
     <table>
       <tr>
@@ -14,7 +29,7 @@
         <th></th>
         <th></th>
       </tr>
-      <% search[:data]["postal_code"]["temperature"]["forecast"].each do |forecast| %>
+      <% search.data["postal_code"]["temperature"]["forecast"].each do |forecast| %>
       <tr>
         <td class="align-left">
           <% parsed_date = Date.parse(forecast['date']) %>

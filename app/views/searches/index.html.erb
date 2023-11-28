@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <h2>Results</h2>
 
 <table>
@@ -7,10 +5,12 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
   <% @searches.each do |search| %>
   <tr>
     <td><%= search.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%m/%d/%y @ %I:%M %p").downcase %></td>
+    <td><%= search.cached ? '💵' : '🔥' %></td>
     <td class="align-left">
       <%= search.address %>
     </td>
