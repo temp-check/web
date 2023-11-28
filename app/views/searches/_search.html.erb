@@ -1,7 +1,7 @@
 <div id="<%= dom_id search %>">
-  <h2>
+  <h3>
     <%= search.address %>
-  </h2>
+  </h3>
 
   <% if search.error %>
     <p style="color: red"><%= search.error %></p>
@@ -10,14 +10,19 @@
       <tr>
         <th></th>
         <th></th>
-        <th>High</th>
-        <th>Low</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
       <% search[:data]["postal_code"]["temperature"]["forecast"].each do |forecast| %>
       <tr>
-        <td><%= forecast['date'] %></td>
+        <td class="align-left">
+          <% parsed_date = Date.parse(forecast['date']) %>
+          <%= parsed_date.strftime("%a, %b #{parsed_date.day.ordinalize} %Y") %>
+        </td>
         <td><%= image_tag forecast['icon'] %></td>
         <td><%= forecast['max_f'] %></td>
+        <td> / </td>
         <td><%= forecast['min_f'] %></td>
       </tr>
       <% end %>
