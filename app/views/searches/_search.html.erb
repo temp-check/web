@@ -38,9 +38,9 @@
           <% end %>
         </td>
         <td><%= image_tag forecast['icon'] unless forecast['icon'].nil? %></td>
-        <td><%= forecast['max_f'] %></td>
+        <td><%= forecast['max_f'] %>&#176;</td>
         <td> / </td>
-        <td><%= forecast['min_f'] %></td>
+        <td><%= forecast['min_f'] %>&#176;</td>
       </tr>
       <% end %>
     </table>

@@ -8,8 +8,6 @@ This client allows users to enter an address to fetch the current temperature fo
 
 ## Installation
 
-
-
 ## Screenshots
 
 ### Search
