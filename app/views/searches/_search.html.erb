@@ -29,13 +29,15 @@
         <th></th>
         <th></th>
       </tr>
-      <% search.data["postal_code"]["temperature"]["forecast"].each do |forecast| %>
+      <% search.data["postal_code"]["temperature"]["forecast"]&.each do |forecast| %>
       <tr>
         <td class="align-left">
-          <% parsed_date = Date.parse(forecast['date']) %>
-          <%= parsed_date.strftime("%a, %b #{parsed_date.day.ordinalize} %Y") %>
+          <% if forecast['date'] %>
+            <% parsed_date = Date.parse(forecast['date']) %>
+            <%= parsed_date.strftime("%a, %b #{parsed_date.day.ordinalize} %Y") %>
+          <% end %>
         </td>
-        <td><%= image_tag forecast['icon'] %></td>
+        <td><%= image_tag forecast['icon'] unless forecast['icon'].nil? %></td>
         <td><%= forecast['max_f'] %></td>
         <td> / </td>
         <td><%= forecast['min_f'] %></td>
