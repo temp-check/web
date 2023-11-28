@@ -2,13 +2,22 @@
 
 <h2>Results</h2>
 
-<div id="searches">
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
   <% @searches.each do |search| %>
-    <%= render search %>
-    <p>
-      <%= link_to "View", search %>
-    </p>
+  <tr>
+    <td><%= search.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%m/%d/%y @ %I:%M %p").downcase %></td>
+    <td class="align-left">
+      <%= search.address %>
+    </td>
+    <td><%= search.error.nil? ? '🟢' : '🔴' %></td>
+    <td><%= link_to 'View', search %></td>
+  </tr>
   <% end %>
-</div>
+</table>
 
 <%= link_to "New", new_search_path %>
