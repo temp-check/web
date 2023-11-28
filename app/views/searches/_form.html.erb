@@ -1,0 +1,15 @@
+<div class="search-container">
+  <%= form_with(model: search) do |form| %>
+    <% if search.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(search.errors.count, "error") %> prohibited this search from being saved:</h2>
+        <ul>
+          <% search.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <%= form.text_field :address, required: true, placeholder: 'Enter an address or zipcode' %><%= form.submit 'Search', class: 'search-button' %>
+  <% end %>
+</div>
